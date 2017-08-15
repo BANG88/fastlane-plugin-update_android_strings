@@ -21,7 +21,23 @@ Update Android res strings.xml
 Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
 
 **Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+```ruby
 
+lane :test do
+	# backup your strings.xml are recommended. restore it back when gradle build success.
+  update_android_strings(
+    # xml_path: 'path/to/your/strings.xml', # defaults: "android/app/src/main/res/values/strings.xml"
+    block: lambda { |strings|
+			 # value must be a string, you can update what you want here.
+             strings['a'] = "string keys"
+             strings['b'] = "string keys"
+             strings['c'] = "string keys"
+           }
+  )
+end
+
+
+```
 ## Run tests for this plugin
 
 To run both the tests, and code style validation, run
