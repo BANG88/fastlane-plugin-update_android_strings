@@ -1,2 +1,3 @@
 ---
 BUNDLE_WITH: "development"
+BUNDLE_BIN: "bin"

@@ -1,3 +1,9 @@
 lane :test do
-  update_android_strings
+  update_android_strings(
+    # xml_path: '',
+    block: lambda { |strings|
+             strings['a'] = "string keys"
+             puts strings
+           }
+  )
 end
